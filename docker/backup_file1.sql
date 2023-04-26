@@ -19,15 +19,15 @@
 -- Table structure for table `Cars`
 --
 
-DROP TABLE IF EXISTS `Cars`;
+DROP TABLE IF EXISTS `cars`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `Cars` (
-  `CarID` int NOT NULL AUTO_INCREMENT,
-  `Reg_Number` varchar(100) NOT NULL,
-  `VIN` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  `Engine_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
-  PRIMARY KEY (`CarID`)
+CREATE TABLE `cars` (
+  `carid` int NOT NULL AUTO_INCREMENT,
+  `reg_number` varchar(100) NOT NULL,
+  `vin` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `engine_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  PRIMARY KEY (`carid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -35,10 +35,10 @@ CREATE TABLE `Cars` (
 -- Dumping data for table `Cars`
 --
 
-LOCK TABLES `Cars` WRITE;
-/*!40000 ALTER TABLE `Cars` DISABLE KEYS */;
-INSERT INTO `Cars` VALUES (1,'KS4735','VJ6879865VJ','Elektro'),(3,'NC4598','VB987654MN','DLS'),(4,'AA7711','LKhgh09876R','Gass'),(6,'BN9832','MV7834105KD','Hybrid'),(7,'SP5631','FA9547814CZ','DLS'),(8,'EX2288','TQ5674013DH','Elektro');
-/*!40000 ALTER TABLE `Cars` ENABLE KEYS */;
+LOCK TABLES `cars` WRITE;
+/*!40000 ALTER TABLE `cars` DISABLE KEYS */;
+INSERT INTO `cars` VALUES (1,'KS4735','VJ6879865VJ','Elektro'),(3,'NC4598','VB987654MN','DLS'),(4,'AA7711','LKhgh09876R','Gass'),(6,'BN9832','MV7834105KD','Hybrid'),(7,'SP5631','FA9547814CZ','DLS'),(8,'EX2288','TQ5674013DH','Elektro');
+/*!40000 ALTER TABLE `cars` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
