@@ -5,7 +5,7 @@ def get_all_instances():
     instance_list = []
     with db.crete_connection() as conn:
         with conn.cursor() as cursor:
-            cursor.execute("SELECT carid, reg_number, vin, engine_type FROM Cars")
+            cursor.execute("SELECT carid, reg_number, vin, engine_type FROM cars")
             for instance in cursor.fetchall():
                 instance_dict = {
                     'carid': instance[0],
@@ -24,7 +24,7 @@ def create_new_instance(car):
 
     with db.crete_connection() as connection:
         with connection.cursor() as cursor:
-            query = "INSERT INTO Cars (carid, reg_number, vin, Engine_type) VALUES (%s, %s, %s, %s);"
+            query = "INSERT INTO cars (carid, reg_number, vin, engine_type) VALUES (%s, %s, %s, %s);"
             values = (car['carid'], car['reg_number'], car['vin'], car['engine_type'])
             cursor.execute(query, values)
             connection.commit()
@@ -34,7 +34,7 @@ def create_new_instance(car):
 def get_one_instance(carid):
     with db.crete_connection() as conn:
         with conn.cursor() as cursor:
-            cursor.execute("SELECT carid, reg_number, vin, engine_type FROM Cars WHERE reg_number ='" + carid + "'")
+            cursor.execute("SELECT carid, reg_number, vin, engine_type FROM cars WHERE reg_number ='" + carid + "'")
             instance = cursor.fetchone()
             if instance is not None:
                 return {
