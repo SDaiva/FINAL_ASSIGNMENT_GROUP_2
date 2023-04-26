@@ -7,7 +7,7 @@ servers:
   - url: /api
 
 paths:
-  /cars:
+  /Cars:
     get:
       summary: Get all information about car registration
       operationId: api.read_all
@@ -15,7 +15,7 @@ paths:
         "200":
           description: Successfully retrieved information about car registration
     post:
-      summary: Create a new car registration
+      summary: Create a new car registration entry
       operationId: api.create_instance
       requestBody:
         description: Create a new car ID

@@ -5,13 +5,13 @@ def get_all_instances():
     instance_list = []
     with db.crete_connection() as conn:
         with conn.cursor() as cursor:
-            cursor.execute("SELECT carid, reg_number, vin, engine_type FROM cars")
+            cursor.execute("SELECT carid, reg_number, VIN, Engine_type FROM Cars")
             for instance in cursor.fetchall():
                 instance_dict = {
                     'carid': instance[0],
                     'reg_number': instance[1],
-                    'vin': instance[2],
-                    'engine_type': instance[3]
+                    'VIN': instance[2],
+                    'Engine_type': instance[3]
                 }
                 instance_list.append(instance_dict)
     return instance_list
@@ -34,14 +34,14 @@ def create_new_instance(car):
 def get_one_instance(carid):
     with db.crete_connection() as conn:
         with conn.cursor() as cursor:
-            cursor.execute("SELECT carid, reg_number, vin, engine_type FROM cars WHERE reg_number ='" + carid + "'")
+            cursor.execute("SELECT carid, reg_number, VIN, Engine_type FROM Cars WHERE reg_number ='" + carid + "'")
             instance = cursor.fetchone()
             if instance is not None:
                 return {
                     'carid': instance[0],
                     'reg_number': instance[1],
-                    'vin': instance[2],
-                    'engine_type': instance[3]
+                    'VIN': instance[2],
+                    'Engine_type': instance[3]
                 }
             else:
                 return None
@@ -50,7 +50,7 @@ def get_one_instance(carid):
 def delete_instance(carid):
     with db.crete_connection() as conn:
         with conn.cursor() as cursor:
-            delete_query = "DELETE FROM cars WHERE reg_number ='" + carid + "'"
+            delete_query = "DELETE FROM Cars WHERE reg_number ='" + carid + "'"
             cursor.execute(delete_query)
             conn.commit()
             return cursor.rowcount
@@ -59,8 +59,8 @@ def delete_instance(carid):
 def update_instance(car, reg_number):
     with db.crete_connection() as conn:
         with conn.cursor() as cursor:
-            update_query = "UPDATE cars SET carid = %s, reg_number = %s, vin = %s, engine_type = %s WHERE reg_number = %s"
-            values = (car['carid'], car['reg_number'], car['vin'], car['engine_type'], reg_number)
+            update_query = "UPDATE Cars SET reg_number = %s, VIN = %s, Engine_type = %s WHERE reg_number = %s"
+            values = (car['reg_number'], car['VIN'], car['Engine_type'], int('reg_number'))
             cursor.execute(update_query, values)
             conn.commit()
         return car
