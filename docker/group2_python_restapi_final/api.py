@@ -1,4 +1,4 @@
-import db_data as db
+import db_data
 from flask import make_response
 
 
