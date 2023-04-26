@@ -24,8 +24,8 @@ def create_new_instance(car):
 
     with db.crete_connection() as connection:
         with connection.cursor() as cursor:
-            query = "INSERT INTO cars (carid, reg_number, vin, engine_type) VALUES (%s, %s, %s, %s);"
-            values = (car['carid'], car['reg_number'], car['vin'], car['engine_type'])
+            query = "INSERT INTO Cars (carid, reg_number, VIN, Engine_type) VALUES (%s, %s, %s, %s);"
+            values = (car['carid'], car['reg_number'], car['VIN'], car['Engine_type'])
             cursor.execute(query, values)
             connection.commit()
     return car, 201
